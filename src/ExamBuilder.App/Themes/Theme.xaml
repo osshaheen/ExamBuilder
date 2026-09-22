@@ -1,0 +1,84 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <!-- الألوان -->
+  <SolidColorBrush x:Key="Ground" Color="#EAE6DB" />
+  <SolidColorBrush x:Key="Panel" Color="#FFFFFF" />
+  <SolidColorBrush x:Key="Ink" Color="#16211C" />
+  <SolidColorBrush x:Key="InkSoft" Color="#55645C" />
+  <SolidColorBrush x:Key="Muted" Color="#8A968F" />
+  <SolidColorBrush x:Key="Line" Color="#E5E0D4" />
+  <SolidColorBrush x:Key="Teal" Color="#0E7C66" />
+  <SolidColorBrush x:Key="TealDeep" Color="#0C5C4C" />
+  <SolidColorBrush x:Key="TealTint" Color="#E4F0EC" />
+  <SolidColorBrush x:Key="Sidebar" Color="#0E2A24" />
+  <SolidColorBrush x:Key="SidebarText" Color="#B7CCC5" />
+  <SolidColorBrush x:Key="SidebarMuted" Color="#6E8B82" />
+  <SolidColorBrush x:Key="Amber" Color="#C77D33" />
+
+  <FontFamily x:Key="AppFont">Segoe UI, Tahoma</FontFamily>
+
+  <!-- بطاقة -->
+  <Style x:Key="Card" TargetType="Border">
+    <Setter Property="Background" Value="{StaticResource Panel}" />
+    <Setter Property="BorderBrush" Value="{StaticResource Line}" />
+    <Setter Property="BorderThickness" Value="1" />
+    <Setter Property="CornerRadius" Value="14" />
+    <Setter Property="Padding" Value="18" />
+  </Style>
+
+  <!-- زر رئيسي -->
+  <Style x:Key="PrimaryButton" TargetType="Button">
+    <Setter Property="Background" Value="{StaticResource Teal}" />
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Padding" Value="16,10" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Border Background="{TemplateBinding Background}" CornerRadius="9" Padding="{TemplateBinding Padding}">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Style.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+        <Setter Property="Background" Value="{StaticResource TealDeep}" />
+      </Trigger>
+    </Style.Triggers>
+  </Style>
+
+  <!-- عنصر القائمة الجانبية -->
+  <Style x:Key="SidebarItem" TargetType="Button">
+    <Setter Property="Foreground" Value="{StaticResource SidebarText}" />
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="FontSize" Value="13.5" />
+    <Setter Property="HorizontalContentAlignment" Value="Right" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Padding" Value="12,10" />
+    <Setter Property="Margin" Value="0,0,0,2" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Border x:Name="bd" Background="{TemplateBinding Background}" CornerRadius="10" Padding="{TemplateBinding Padding}">
+            <ContentPresenter />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Style.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+        <Setter Property="Background" Value="#12362E" />
+      </Trigger>
+      <DataTrigger Binding="{Binding IsActive}" Value="True">
+        <Setter Property="Background" Value="{StaticResource Teal}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+      </DataTrigger>
+    </Style.Triggers>
+  </Style>
+
+</ResourceDictionary>
